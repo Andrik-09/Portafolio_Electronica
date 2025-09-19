@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Portafolio de Proyectos de Ingeniería Mecatrónica" />
+    <meta name="author" content="Andrik Pérez Luna & Jonathan Jimmy Sánchez Mendoza" />
+    <title>Portafolio | Ibero Puebla</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* Definición de colores principales */
+        :root {
+            --color-vino-oscuro: #5C0F16;
+            --color-negro: #1a1a1a;
+            --color-gris-oscuro: #333333;
+            --color-gris-claro: #f0f2f5;
+            --color-blanco: #ffffff;
+            --color-texto-claro: #f8f9fa;
+            --color-acentos: #ef4044;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-negro);
+            color: var(--color-texto-claro);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--color-vino-oscuro) !important;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .navbar-nav .nav-link {
+            color: var(--color-texto-claro) !important;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--color-acentos) !important;
+        }
+
+        /* Header (Banner principal) */
+        header.bg-primary {
+            background-color: var(--color-vino-oscuro) !important;
+            padding-top: 8rem !important;
+            padding-bottom: 5rem !important;
+            position: relative;
+            z-index: 1;
+        }
+        header h1, header p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Secciones */
+        section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            position: relative;
+            z-index: 0;
+        }
+        .bg-negro {
+            background-color: var(--color-negro);
+            color: var(--color-texto-claro);
+        }
+        .bg-gris-oscuro {
+            background-color: var(--color-gris-oscuro);
+            color: var(--color-texto-claro);
+        }
+
+        /* Títulos de sección */
+        .section-heading {
+            color: var(--color-acentos);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-acentos);
+            border-radius: 2px;
+        }
+
+        /* Tarjetas de perfil (equipo) y resumen */
+        .profile-card {
+            background-color: var(--color-gris-oscuro);
+            border: 1px solid var(--color-acentos);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            color: var(--color-texto-claro);
+            display: flex; /* Añadido para mejor control del layout */
+            flex-direction: column; /* Añadido para apilar elementos */
+            align-items: center; /* Centrar el contenido horizontalmente */
+            text-align: center; /* Centrar el texto */
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+        .profile-card-header {
+            background-color: var(--color-vino-oscuro);
+            width: 100%;
+            height: 120px; /* Tamaño del área de la imagen */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--color-negro);
+            box-shadow: 0 0 0 3px var(--color-acentos);
+            margin-top: -60px; /* Sube la imagen para que se superponga al header */
+            position: relative; /* Necesario para que el z-index funcione */
+            z-index: 2; /* Asegura que la imagen esté encima del header y del card-body */
+        }
+        .profile-card .card-body {
+            padding-top: 2rem; /* Reduce el padding-top para acercar el texto a la imagen */
+            background-color: var(--color-gris-oscuro);
+        }
+        .profile-card .card-body .fw-bolder {
+            color: var(--color-acentos);
+        }
+        .profile-card .card-body .fst-italic {
+            color: var(--color-texto-claro);
+        }
+
+        /* Texto de resumen en su propia tarjeta */
+        #resumen .profile-card {
+            background-color: var(--color-gris-claro);
+            color: var(--color-vino-oscuro);
+            border: 1px solid var(--color-acentos);
+            padding: 3rem;
+            text-align: left;
+        }
+        #resumen .profile-card p {
+            color: var(--color-vino-oscuro);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        #resumen .profile-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #resumen .profile-card ul li::before {
+            content: "• ";
+            color: var(--color-acentos);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Contenedor de las tarjetas para un espaciado uniforme */
+        .card-container {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Tarjetas de Herramientas */
+        .herramientas-card {
+            background-color: var(--color-gris-oscuro);
+            border: 1px solid var(--color-acentos);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            color: var(--color-texto-claro);
+        }
+        .herramientas-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+        .herramientas-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            background-color: var(--color-negro);
+            padding: 15px;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+        .herramientas-card .card-body .badge {
+            background-color: var(--color-acentos);
+            font-size: 0.9rem;
+            padding: 0.5em 1em;
+        }
+        .herramientas-card .card-title {
+            color: var(--color-acentos);
+        }
+        .herramientas-card .card-text {
+            color: var(--color-texto-claro);
+            text-align: justify;
+        }
+
+        /* Tarjetas de Proyectos (Prácticas) */
+        .work-card {
+            background-color: var(--color-gris-oscuro);
+            border: 1px solid var(--color-acentos);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            color: var(--color-texto-claro);
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+        .work-card .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 9px;
+            border-top-right-radius: 9px;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+        .work-card .badge {
+            background-color: var(--color-acentos);
+            font-size: 0.85rem;
+            padding: 0.4em 0.8em;
+        }
+        .work-card .card-title {
+            color: var(--color-acentos);
+        }
+        .work-card .card-text {
+            color: var(--color-texto-claro);
+        }
+        .work-card .btn-primary {
+            background-color: var(--color-acentos);
+            border-color: var(--color-acentos);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .work-card .btn-primary:hover {
+            background-color: #d13034;
+            border-color: #d13034;
+        }
+        .work-card .card-footer {
+            background-color: var(--color-negro);
+            border-top: 1px solid var(--color-vino-oscuro);
+            color: var(--color-texto-claro);
+        }
+        .work-card .card-footer .fw-bold {
+            color: var(--color-acentos);
+        }
+        .work-card .card-footer .text-muted {
+            color: var(--color-texto-claro) !important;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-vino-oscuro) !important;
+            border-top: 2px solid var(--color-acentos);
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+        footer .small, footer .link-light {
+            color: var(--color-texto-claro) !important;
+        }
+        footer .link-light:hover {
+            color: var(--color-acentos) !important;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="img/rubrica_fblanco_tnegro.png" alt="Logo Ibero" />
+                    Menu
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#herramientas">Herramientas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#practicas">Proyectos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-primary">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start">
+                            <h1 class="display-6 fw-bolder text-white mb-2">Portafolio de Actividades</h1>
+                            <h1 class="display-8 fw-bolder text-white mb-2">Producción Electrónica</h1>
+                            <p class="lead fw-normal text-white-50 mb-4">Departamento de Ciencias e Ingenierías | Universidad Iberoamericana Puebla, México.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="resumen" class="py-5 bg-negro">
+            <div class="container px-5">
+                <h2 class="section-heading text-center mb-5">Acerca de este Portafolio</h2>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card profile-card">
+                            <p>
+                                Este sitio web es nuestro portafolio de evidencias para la materia de “Producción Electrónica”, impartida por el Maestro Javier Osorio Figueroa.
+                                <br><br>
+                                Durante esta asignatura, nos enfocamos en el proceso completo para el desarrollo de proyectos electrónicos, incluyendo:
+                                <ul>
+                                    <li>Diseño de circuitos esquemáticos.</li>
+                                    <li>Fabricación de placas electrónicas usando herramientas como "MonoFab" y "xTool".</li>
+                                    <li>Uso de software especializado "Altium" y "KiCad" para modelado y validación de diseños.</li>
+                                </ul>
+                        
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipo" class="py-5 bg-gris-oscuro">
+            <div class="container px-5">
+                <h2 class="section-heading text-center mb-5">Nuestro Equipo</h2>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-5 col-md-6 mb-4">
+                        <div class="card profile-card">
+                            <div class="profile-card-header">
+                                <img class="profile-img" src="img/portada f.jpeg" alt="Foto de Andrik" />
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="fw-bolder">Andrik Pérez Luna</h5>
+                                <div class="fst-italic">Ingeniería Mecatrónica | 3er Semestre</div>
+                                <div class="fst-italic">200851@iberopuebla.mx</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 mb-4">
+                        <div class="card profile-card">
+                            <div class="profile-card-header">
+                                <img class="profile-img" src="img/jimmy.png" alt="Foto de Jonathan Jimmy" />
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="fw-bolder">Jonathan Jimmy Sánchez Mendoza</h5>
+                                <div class="fst-italic">Ingeniería Mecatrónica | 3er Semestre</div>
+                                <div class="fst-italic">201659@iberopuebla.mx</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="herramientas" class="py-5 bg-negro">
+            <div class="container px-5">
+                <h2 class="section-heading text-center mb-5">Herramientas de Trabajo</h2>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card herramientas-card">
+                            <img class="herramientas-card-img" src="img/cnc.jpg" alt="Máquina MonoFAB" />
+                            <div class="card-body p-4">
+                                <span class="badge rounded-pill mb-2">CNC</span>
+                                <h5 class="card-title mt-3 mb-1 text-center">MonoFAB SRM-20</h5>
+                                <p class="card-text">La fresadora de sobremesa monoFab SRM-20 es una máquina CNC de tres ejes diseñada para el prototipado sustractivo, ofreciendo un tamaño compacto y una funcionalidad potente a un precio asequible. Su gabinete totalmente cubierto reduce el polvo y el ruido, y cuenta con una ventana para visualizar el progreso del fresado. Un interruptor de seguridad detiene la operación al abrir la cubierta.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="card herramientas-card">
+                            <img class="herramientas-card-img" src="img/xtool.jpg" alt="Máquina Xtool" />
+                            <div class="card-body p-4">
+                                <span class="badge rounded-pill mb-2">Corte Láser</span>
+                                <h5 class="card-title mt-3 mb-1 text-center">Xtool Laser</h5>
+                                <p class="card-text">Es un dispositivo de grabado y corte láser multifuncional que combina tecnologías de láser diodo e infrarrojo para cortar y grabar una amplia variedad de materiales con alta precisión. Su enfoque automático y posicionamiento visual permiten ajustes precisos para grabados detallados. Incorpora software compatible con múltiples sistemas operativos que facilita el diseño y control de los proyectos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="practicas" class="py-5 bg-gris-oscuro">
+            <div class="container px-5">
+                <h2 class="section-heading text-center mb-5">Proyectos Realizados</h2>
+                <div class="row gx-5">
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="img/Kicadcir.png" alt="Práctica 1" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 1: Corte en MonoFab</h5>
+                                <p class="card-text mb-0">Diseño de PCB en KiCad, preparación en Mods y fabricación en MonoFab.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica1/practica1.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+2" alt="Práctica 2" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 2: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica2.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+3" alt="Práctica 3" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 3: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica3.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+4" alt="Práctica 4" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 4: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica4.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+5" alt="Práctica 5" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 5: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica5.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+6" alt="Práctica 6" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 6: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica6.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+7" alt="Práctica 7" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 7: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica7.html">Leer más</a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card work-card h-100">
+                            <img class="card-img-top" src="https://via.placeholder.com/600x400/5C0F16/FFFFFF?text=Práctica+8" alt="Práctica 8" />
+                            <div class="card-body px-4">
+                                <div class="mb-2">
+                                    <span class="badge rounded-pill me-1">Categoría</span>
+                                    <span class="badge rounded-pill">Herramienta</span>
+                                </div>
+                                <h5 class="card-title mt-3 mb-1">Práctica 8: Título del Proyecto</h5>
+                                <p class="card-text mb-0">Descripción breve de lo que se hizo en la práctica. Explica el objetivo y el resultado principal.</p>
+                            </div>
+                            <div class="d-grid py-4 px-4"><a class="btn btn-primary" href="practica8.html">Leer más</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2023</div></div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

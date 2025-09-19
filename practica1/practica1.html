@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Detalles de la Práctica 1" />
+    <meta name="author" content="Andrik Pérez Luna & Jimmy" />
+    <title>Práctica 1 | Portafolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        :root {
+            --color-vino-oscuro: #5C0F16;
+            --color-negro: #1a1a1a;
+            --color-gris-oscuro: #333333;
+            --color-gris-claro: #f0f2f5;
+            --color-blanco: #ffffff;
+            --color-texto-claro: #f8f9fa;
+            --color-acentos: #ef4044;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-negro);
+            color: var(--color-texto-claro);
+        }
+
+        .navbar {
+            background-color: var(--color-vino-oscuro) !important;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .navbar-nav .nav-link {
+            color: var(--color-texto-claro) !important;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--color-acentos) !important;
+        }
+
+        .practica-header {
+            background-color: var(--color-vino-oscuro);
+            padding-top: 6rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+
+        .practica-header h1 {
+            color: var(--color-texto-claro);
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .practica-section {
+            background-color: var(--color-gris-oscuro);
+            padding: 4rem 0;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--color-acentos);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .practica-section h2 {
+            color: var(--color-acentos);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--color-acentos);
+            padding-bottom: 0.5rem;
+            width: fit-content;
+        }
+
+        .practica-section p {
+            color: var(--color-texto-claro);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .practica-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                    <img src="img/rubrica_fblanco_tnegro.png" alt="Logo Ibero" />
+                    Volver a Portafolio
+                </a>
+            </div>
+        </nav>
+        
+        <header class="practica-header">
+            <div class="container px-5 text-center">
+                <h1 class="display-5">Corte en MonoFab para PCB</h1>
+            </div>
+        </header>
+
+        <section class="py-5 bg-negro">
+            <div class="container px-5">
+                
+                <div class="practica-section p-5">
+                    <h2>Introducción</h2>
+                    <p>En esta práctica se utilizó KiCad para elaborar el esquemático y el diseño de PCB, aplicando las reglas de diseño correspondientes. Posteriormente, se trabajó con Mods para la preparación de archivos y con la fresadora MonoFab para la fabricación de la tarjeta. Finalmente, se registraron imágenes de las pistas obtenidas para verificar el resultado del proceso.</p>
+                </div>
+
+                <div class="practica-section p-5">
+                    <h2>Objetivos</h2>
+                    <ul>
+                        <li>Diseñar el esquemático y la PCB en KiCad, aplicando las reglas de diseño.</li>
+                        <li>Preparar los archivos de manufactura con Mods.</li>
+                        <li>Utilizar la fresadora MonoFab para fabricar la tarjeta de circuito impreso.</li>
+                        <li>Verificar el resultado de las pistas obtenidas.</li>
+                    </ul>
+                </div>
+
+                <div class="practica-section p-5">
+    <h2>KiCad (Uso y reglas de diseño)</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <img src="img/circuito1.png" class="practica-image d-block mx-auto">
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="img/jimmicircui.jfif" class="practica-image d-block mx-auto">
+            </div>
+        </div>
+    </div>
+    <p>En esta parte de la práctica se trabajó de forma más completa con KiCad. El primer paso fue integrar la librería del FabLab, ya que contiene los componentes con las características necesarias para realizar los circuitos de manera correcta. Cada miembro del equipo elaboró su propio diseño, los cuales incluyeron cuatro interruptores conectados a una salida, un voltaje de 3.3 V, ocho resistencias, cuatro LEDs y la conexión a tierra.</p>
+    
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-md-6 mb-4">
+                <img src="img/circuitjimmyr.jfif" class="practica-image d-block mx-auto" alt="Diagrama de tierra 1">
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="img/Kicadcir.png" class="practica-image d-block mx-auto" alt="Diagrama de tierra 2">
+            </div>
+        </div>
+    </div>
+    
+    <p>Posteriormente, se desarrolló el esquemático, donde se organizaron todos los elementos y se trazaron sus conexiones de manera ordenada, sirviendo como base para pasar al diseño de la placa.</p>
+</div>
+
+                <div class="practica-section p-5">
+    <h2>Uso de Mods</h2>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <img src="img/Mods1.png" class="practica-image d-block mx-auto" alt="Imagen de Mods 1">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="img/mods2.png" class="practica-image d-block mx-auto" alt="Imagen de Mods 2">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="img/mods3.png" class="practica-image d-block mx-auto" alt="Imagen de Mods 3">
+            </div>
+        </div>
+    </div>
+    <p>El programa Mods permitió convertir los archivos de diseño en trayectorias de fresado 
+    compatibles con la máquina MonoFab. En este paso se ajustaron parámetros como 
+    la resolución, el tamaño de la herramienta de corte y la profundidad de fresado. 
+    También se generaron las rutas para el contorno y para las pistas internas, 
+    lo cual asegura que la fresadora pueda diferenciar entre el material a eliminar 
+    y las pistas de cobre que deben permanecer.</p>
+</div>
+
+                <div class="practica-section p-5">
+    <h2>Uso y manejo de la MonoFab</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <img src="img/monofab1.jfif" class="practica-image d-block mx-auto">
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="img/Monofab2.jfif" class="practica-image d-block mx-auto">
+            </div>
+        </div>
+    </div>
+    <p>Con la fresadora MonoFab se fabricó físicamente la PCB. Se colocó la placa de cobre 
+    en la cama de la máquina y se aseguró con cinta doble cara para evitar movimientos. 
+    Posteriormente se calibró la altura de la fresa, ajustando la presión para no dañar 
+    la superficie. Una vez cargados los archivos desde Mods, la máquina ejecutó las 
+    trayectorias generadas dejando definidas las pistas 
+    del circuito. Finalmente, se recortó el contorno para obtener la tarjeta terminada.</p>
+</div>
+
+               <div class="practica-section p-5">
+    <h2>Resultados</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <img src="img/pcb1.jfif" class="practica-image d-block mx-auto">
+            </div>
+            <div class="col-md-6 mb-4">
+                <img src="img/pcb2.jfif" class="practica-image d-block mx-auto">
+            </div>
+        </div>
+    </div>
+    <p>Los resultados obtenidos muestran que las perforaciones y las pistas de la PCB se fabricaron correctamente. Sin embargo, no se pudo realizar el corte del contorno final debido a que la broca se rompió durante el proceso.</p>
+</div>
+
+               <div class="practica-section p-5">
+    <h2>Conclusiones</h2>
+    <p>No se obtuvieron los resultados esperados. La práctica demostró que si bien el diseño y la preparacion de los archivos se completaron con éxito; la fresadora MonoFab no pudo terminar de cortar el contorno debido a la rotura de la broca por desgaste.</p>
+</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2023</div></div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
