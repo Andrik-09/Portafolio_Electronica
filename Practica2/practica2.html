@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Multisim - Entorno, primeros pasos, tipos de simulación y ejemplos" />
+    <meta name="author" content="Andrik Pérez Luna & Jimmy" />
+    <title>Multisim | Portafolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        :root {
+            --color-vino-oscuro: #5C0F16;
+            --color-negro: #1a1a1a;
+            --color-gris-oscuro: #333333;
+            --color-gris-claro: #f0f2f5;
+            --color-blanco: #ffffff;
+            --color-texto-claro: #f8f9fa;
+            --color-acentos: #ef4044;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-negro);
+            color: var(--color-texto-claro);
+        }
+
+        .navbar {
+            background-color: var(--color-vino-oscuro) !important;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .navbar-nav .nav-link {
+            color: var(--color-texto-claro) !important;
+            transition: color 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover {
+            color: var(--color-acentos) !important;
+        }
+
+        .practica-header {
+            background-color: var(--color-vino-oscuro);
+            padding-top: 6rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--color-acentos);
+        }
+        .practica-header h1 {
+            color: var(--color-texto-claro);
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+
+        .practica-section {
+            background-color: var(--color-gris-oscuro);
+            padding: 4rem 0;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--color-acentos);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .practica-section h2 {
+            color: var(--color-acentos);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--color-acentos);
+            padding-bottom: 0.5rem;
+            width: fit-content;
+        }
+        .practica-section p {
+            color: var(--color-texto-claro);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .practica-image,
+        .img-placeholder {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: block;
+        }
+        .img-placeholder {
+            min-height: 220px;
+            border: 2px dashed var(--color-acentos);
+            background: rgba(239,64,68,0.08);
+            color: var(--color-acentos);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .list-clean { list-style: none; padding-left: 0; }
+        .list-clean li::before { content: "• "; color: var(--color-acentos); font-weight: bold; }
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                    <img src="img/rubrica_fblanco_tnegro.png" alt="Logo Ibero" />
+                    Volver a Portafolio
+                </a>
+            </div>
+        </nav>
+
+        <header class="practica-header">
+            <div class="container px-5 text-center">
+                <h1 class="display-5">Multisim: Entorno, primeros pasos y simulaciones</h1>
+            </div>
+        </header>
+
+        <section class="py-5 bg-negro">
+            <div class="container px-5">
+
+                <!-- Introducción -->
+                <div class="practica-section p-5">
+                    <h2>Introducción</h2>
+                     <img src="img/multi.png" class="practica-image d-block mx-auto">
+                    <p>
+                        Multisim (14.3) es un simulador de circuitos que permite crear esquemáticos, configurar parámetros SPICE,
+                        medir voltajes y corrientes con instrumentación virtual y evaluar el desempeño bajo distintos tipos de análisis.
+                        En clase se mostró cómo insertar y editar componentes (valor, encapsulado, coeficiente de temperatura),
+                        y cómo relacionar la simulación con la fabricación de prototipos. También se explicó que cada componente tiene
+                        un modelo SPICE que replica su comportamiento real según su hoja de datos, considerando materiales
+                        semiconductores, dopaje y temperatura de operación.
+                    </p>
+                </div>
+
+                <!-- Objetivos -->
+                <div class="practica-section p-5">
+                    <h2>Objetivos</h2>
+                    <ul class="list-clean">
+                        <li>Reconocer el entorno y barras de herramientas de Multisim.</li>
+                        <li>Realizar los primeros pasos para construir y medir un circuito básico.</li>
+                        <li>Distinguir los tipos de simulación (interactiva, transitoria, frecuencia, Fourier y temperatura).</li>
+                        <li>Identificar las propiedades físicas de los componentes eléctricos más comunes y sus unidades.</li>
+                    </ul>
+                </div>
+
+                <!-- Entorno -->
+                <div class="practica-section p-5">
+                    <h2>Entorno de Multisim</h2>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <img src="img/multis1.png" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Interfaz y bibliotecas:</strong> ventana de esquemático para colocar y cablear componentes.
+                                    Las bibliotecas incluyen resistencias, capacitores (cerámicos, electrolíticos y de tántalo),
+                                    diodos comunes y Zener, transistores BJT y MOSFET, así como circuitos integrados analógicos y digitales.
+                                    El profesor señaló la importancia de respetar prefijos como micro, nano y pico para evitar errores.
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <img src="img/resistance.png" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Propiedades y SPICE:</strong> cada componente incluye un modelo SPICE con parámetros eléctricos y térmicos
+                                    que permiten simular condiciones reales, incluyendo variaciones de temperatura o frecuencia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tipos de simulación -->
+                <div class="practica-section p-5">
+                    <h2>Tipos de simulación</h2>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <h5 style="color: var(--color-acentos);">Interactiva</h5>
+                               
+                                <p>Observación directa durante la ejecución; útil para depurar y validar estados lógicos o comportamiento de LEDs.</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5 style="color: var(--color-acentos);">Transitoria (vs. tiempo)</h5>
+                                
+                                <p>Analiza la respuesta de voltaje o corriente en función del tiempo, como la carga de un capacitor o la forma de un pulso.</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5 style="color: var(--color-acentos);">Frecuencia (Bode)</h5>
+                                
+                                <p>Permite observar la ganancia y fase de un circuito a distintas frecuencias. Es esencial para el diseño de filtros o amplificadores.</p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5 style="color: var(--color-acentos);">Fourier (armónicos)</h5>
+                               
+                                <p>
+                                    El análisis de Fourier descompone una señal compleja en componentes senoidales. 
+                                    Se utiliza para estudiar distorsión armónica en señales no senoidales y para diseñar filtros que conserven 
+                                    la frecuencia fundamental y atenúen armónicos no deseados.
+                                </p>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h5 style="color: var(--color-acentos);">Temperatura</h5>
+                                
+                                <p>
+                                    Evalúa el rendimiento del circuito cuando cambian las condiciones térmicas.
+                                    Útil para observar variaciones de V, I o frecuencia a 27 °C, 60 °C o 100 °C.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplos de simulación -->
+                <div class="practica-section p-5">
+                    <h2>Ejemplos de simulación</h2>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- RC transitorio -->
+                            <div class="col-md-6 mb-4">
+                                <h5 class="mb-2" style="color: var(--color-acentos);">Circuito RC (transitorio)</h5>
+                                 <img src="img/RC_simulation.png" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Objetivo:</strong> observar carga y descarga del capacitor aplicando un pulso.
+                                    <br><strong>Procedimiento:</strong> configura fuente de pulso, mide Vc con osciloscopio y ajusta R o C
+                                    para ver cambios en la constante de tiempo.
+                                </p>
+                            </div>
+                            <!-- Filtro RC Bode -->
+                            <div class="col-md-6 mb-4">
+                                <h5 class="mb-2" style="color: var(--color-acentos);">Filtro RC (Bode)</h5>
+                               <img src="img/Bode.png" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Objetivo:</strong> trazar magnitud y fase en función de la frecuencia.
+                                    <br><strong>Procedimiento:</strong> usa análisis de AC Sweep, define rango logarítmico y compara
+                                    la frecuencia de corte calculada con la simulada.
+                                </p>
+                            </div>
+                            <!-- Fourier onda cuadrada -->
+                            <div class="col-md-6 mb-4">
+                                <h5 class="mb-2" style="color: var(--color-acentos);">Fourier de onda cuadrada</h5>
+                               <img src="img/fourier.png" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Objetivo:</strong> visualizar armónicos impares y su atenuación 1/n.
+                                    <br><strong>Procedimiento:</strong> genera onda cuadrada con fuente, ejecuta análisis de Fourier
+                                    y observa amplitudes relativas de armónicos.
+                                </p>
+                            </div>
+                            <!-- Mediciones con multímetro -->
+                            <div class="col-md-6 mb-4">
+                                <h5 class="mb-2" style="color: var(--color-acentos);">Mediciones con multímetro</h5>
+                                 <img src="img/Multime.jpg" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Objetivo:</strong> medir V, I y R en nodos específicos.
+                                    <br><strong>Procedimiento:</strong> coloca el instrumento, conecta puntas, ejecuta simulación y abre la ventana 
+                                    del multímetro para leer valores precisos en DC o AC.
+                                </p>
+                            </div>
+                            <!-- Temperatura en diodo -->
+                            <div class="col-md-12 mb-2">
+                                <h5 class="mb-2" style="color: var(--color-acentos);">Temperatura en diodo</h5>
+                                <img src="img/diodo.png" class="practica-image d-block mx-auto">
+                                <p>
+                                    <strong>Objetivo:</strong> evaluar el desplazamiento de la curva I–V con la temperatura.
+                                    <br><strong>Procedimiento:</strong> ajusta la temperatura del análisis, ejecuta barrido de DC y
+                                    compara tensiones de umbral y corriente de fuga.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conclusiones -->
+                <div class="practica-section p-5">
+                    <h2>Conclusiones y notas</h2>
+                   
+                    <p>
+                        Multisim es una herramienta para comprender el comportamiento eléctrico de los circuitos antes de su fabricación física.
+                        Permite experimentar con variables, realizar mediciones precisas y observar efectos de temperatura, frecuencia y transitorios.
+                        Un diseño bien simulado previene errores en laboratorio y mejora la comprensión de conceptos fundamentales.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2025</div></div>
+                <div class="col-auto">
+                    <a class="link-light small" href="#!">Privacy</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Terms</a>
+                    <span class="text-white mx-1">&middot;</span>
+                    <a class="link-light small" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
