@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Soldadura en electrónica: técnicas, proceso, parámetros, buenas prácticas y defectos comunes." />
+    <meta name="author" content="Andrik Pérez Luna & Jimmy" />
+    <title>Soldadura | Portafolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        :root{
+            --color-vino-oscuro:#5C0F16;
+            --color-negro:#1a1a1a;
+            --color-gris-oscuro:#333333;
+            --color-gris-claro:#f0f2f5;
+            --color-blanco:#ffffff;
+            --color-texto-claro:#f8f9fa;
+            --color-acentos:#ef4044;
+        }
+        body{
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+            background-color:var(--color-negro);
+            color:var(--color-texto-claro);
+        }
+        .navbar{
+            background-color:var(--color-vino-oscuro)!important;
+            border-bottom:2px solid var(--color-acentos);
+        }
+        .navbar-brand img{height:50px;margin-right:15px;border-radius:5px;}
+        .navbar-nav .nav-link{color:var(--color-texto-claro)!important;transition:color .3s ease;}
+        .navbar-nav .nav-link:hover{color:var(--color-acentos)!important;}
+        .practica-header{
+            background-color:var(--color-vino-oscuro);
+            padding-top:6rem;padding-bottom:3rem;
+            border-bottom:2px solid var(--color-acentos);
+        }
+        .practica-header h1{color:var(--color-texto-claro);font-weight:700;text-shadow:1px 1px 3px rgba(0,0,0,.4);}
+        .practica-section{
+            background-color:var(--color-gris-oscuro);
+            padding:4rem 0;margin:2rem 0;border-radius:10px;
+            border:1px solid var(--color-acentos);box-shadow:0 5px 15px rgba(0,0,0,.4);
+        }
+        .practica-section h2{
+            color:var(--color-acentos);margin-bottom:1.5rem;border-bottom:2px solid var(--color-acentos);
+            padding-bottom:.5rem;width:fit-content;
+        }
+        .practica-section p{font-size:1.1rem;line-height:1.6;text-align:justify;color:var(--color-texto-claro);}
+        .mini{font-size:1.1rem;line-height:1.6;color:var(--color-texto-claro);}
+        .practica-image,.img-placeholder{
+            max-width:100%;height:auto;border-radius:8px;margin:1rem 0;display:block;
+        }
+        .img-placeholder{
+            min-height:220px;border:2px dashed var(--color-acentos);
+            background:rgba(239,64,68,.08);color:var(--color-acentos);
+            display:flex;align-items:center;justify-content:center;font-weight:600;text-align:center;padding:1rem;
+        }
+        .list-clean{list-style:none;padding-left:0;}
+        .list-clean li::before{content:"• ";color:var(--color-acentos);font-weight:bold;}
+        .badge-tip{
+            display:inline-block;background:rgba(239,64,68,.15);
+            border:1px solid var(--color-acentos);color:var(--color-texto-claro);
+            padding:.15rem .5rem;border-radius:6px;font-size:.9rem;margin-right:.25rem;
+        }
+        .card-defecto{
+            background:#2b2b2b;border:1px solid #444;border-left:4px solid var(--color-acentos);
+            border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;
+        }
+        .card-defecto h5{color:var(--color-acentos);margin-bottom:.35rem;}
+        .label{font-weight:700;}
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container px-5">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="img/rubrica_fblanco_tnegro.png" alt="Logo Ibero" />
+                Volver a Portafolio
+            </a>
+        </div>
+    </nav>
+
+    <header class="practica-header">
+        <div class="container px-5 text-center">
+            <h1 class="display-5">Soldadura: técnicas, proceso y control de calidad</h1>
+        </div>
+    </header>
+
+    <section class="py-5 bg-negro">
+        <div class="container px-5">
+
+            <!-- Introducción -->
+            <div class="practica-section p-5">
+                <h2>Introducción</h2>
+                
+                <p>
+                    La soldadura electrónica une mecánica y eléctricamente terminales y almohadillas de la PCB mediante una aleación
+                    (SnPb o libre de plomo, por ejemplo SAC305). La calidad de la unión depende del perfil térmico (temperatura y tiempo),
+                    la limpieza, la geometría de los pads y la técnica del operador. Aquí se resumen técnicas, proceso paso a paso,
+                    buenas prácticas y los defectos más comunes con su prevención y corrección.
+                </p>
+            </div>
+
+            <!-- Objetivos -->
+            <div class="practica-section p-5">
+                <h2>Objetivos</h2>
+                <ul class="list-clean">
+                    <li>Dominar el proceso básico de soldadura manual en THT y SMD.</li>
+                    <li>Seleccionar temperatura de punta, diámetro de soldadura y parámetros adecuados.</li>
+                    <li>Aplicar inspección visual y criterios de aceptación con filete cóncavo y humectación uniforme.</li>
+                    <li>Identificar y corregir trece defectos frecuentes en soldadura de PCB.</li>
+                </ul>
+            </div>
+            <div class="practica-section p-5">
+    <h2>Pasos para usar un cautín</h2>
+     <img src="img/cautin.png" class="practica-image d-block mx-auto">
+    <ol class="list-clean">
+        <li><span class="label">Seguridad:</span> usa gafas, recoge el cabello y despeja el área; nunca toques la punta ni dejes el cautín sobre la mesa.</li>
+        <li><span class="label">Preparación del equipo:</span> coloca el cautín en su base con esponja o lana metálica y verifica que el cable no estorbe.</li>
+        <li><span class="label">Encendido:</span> ajusta la temperatura adecuada (330–370 °C con plomo, 360–400 °C sin plomo) según el tipo de soldadura y pieza.</li>
+        <li><span class="label">Limpieza inicial de la punta:</span> limpia suavemente la punta en la esponja/lanilla para retirar óxidos y residuos.</li>
+        <li><span class="label">Estañado de la punta:</span> aplica una pequeña cantidad de soldadura a la punta caliente para mejorar la transferencia de calor.</li>
+        <li><span class="label">Fijación de la PCB/componente:</span> sujeta la placa con base o tercera mano y asegura los componentes a soldar.</li>
+        <li><span class="label">Calentamiento del punto:</span> apoya la punta tocando a la vez pad y terminal durante 1–2 segundos para llevarlos a temperatura.</li>
+        <li><span class="label">Aporte de soldadura:</span> acerca el hilo de soldadura al punto caliente (no a la punta) hasta formar un filete cóncavo.</li>
+        <li><span class="label">Retiro correcto:</span> retira primero el hilo de soldadura y después el cautín, evitando mover la unión mientras solidifica.</li>
+        <li><span class="label">Limpieza entre uniones:</span> limpia la punta periódicamente para conservarla brillante y libre de residuos.</li>
+        <li><span class="label">Apagado y enfriamiento:</span> apaga el cautín al terminar, déjalo enfriar en su base y guarda el equipo con el cable ordenado.</li>
+        <li><span class="label">Inspección final:</span> revisa que el filete sea uniforme, sin poros ni puentes, y que el componente esté bien alineado.</li>
+    </ol>
+</div>
+
+            <!-- Técnicas de soldadura -->
+            <div class="practica-section p-5">
+                <h2>Técnicas de soldadura</h2>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h5 style="color: var(--color-acentos);">Soldadura manual THT</h5>
+                             <img src="img/soldadurahp.png" class="practica-image d-block mx-auto">
+                            <p class="mini">
+                                Aplicación con cautín (330–370 °C con plomo, 360–400 °C sin plomo). Calentar pad y pin durante 1–2 s,
+                                aportar soldadura en el punto caliente y retirar en el mismo ángulo. Mantener la punta limpia y estañada.
+                            </p>
+                            <span class="badge-tip">Punta adecuada</span>
+                            <span class="badge-tip">Tiempo de contacto corto</span>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h5 style="color: var(--color-acentos);">Soldadura manual SMD</h5>
+                           <img src="img/soldsmd.png" class="practica-image d-block mx-auto">
+                            <p class="mini">
+                                Fijar una pata con una gota, alinear el componente y soldar el resto por arrastre controlando la temperatura.
+                                Usar punta tipo chisel pequeña para controlar el menisco.
+                            </p>
+                            <span class="badge-tip">Arrastre</span>
+                            <span class="badge-tip">Control térmico</span>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h5 style="color: var(--color-acentos);">Reflujo con horno</h5>
+                            <img src="img/hornosol.png" class="practica-image d-block mx-auto">
+                            <p class="mini">
+                                Depositar pasta con stencil, colocar componentes y seguir un perfil térmico con preheat, soak, reflow y cooldown
+                                para asegurar humectación y evitar levantamiento de piezas.
+                            </p>
+                            <span class="badge-tip">Perfil térmico</span>
+                            <span class="badge-tip">Stencil</span>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <h5 style="color: var(--color-acentos);">Soldadura por ola</h5>
+                             <img src="img/soldadola.png" class="practica-image d-block mx-auto">
+                            <p class="mini">
+                                Flujo, precalentamiento y paso por la ola para THT masivo. Cuidar orientación y máscara antisoldante para evitar puentes.
+                            </p>
+                            <span class="badge-tip">Precalentar</span>
+                            <span class="badge-tip">Máscara antisoldante</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proceso paso a paso -->
+            <div class="practica-section p-5">
+                <h2>Proceso de soldadura (paso a paso)</h2>
+                <ol class="list-clean">
+                    <li><span class="label">Preparación:</span> limpiar PCB y terminales, fijar la placa, seleccionar punta y temperatura.</li>
+                    <li><span class="label">Calentamiento:</span> apoyar la punta tocando a la vez pad y terminal durante 1–2 s.</li>
+                    <li><span class="label">Aporte:</span> acercar el hilo de soldadura al punto caliente hasta formar filete cóncavo.</li>
+                    <li><span class="label">Retiro y enfriamiento:</span> retirar soldadura y luego la punta sin mover la unión.</li>
+                    <li><span class="label">Limpieza:</span> remover residuos cuando corresponda y cortar terminales.</li>
+                    <li><span class="label">Inspección:</span> comprobar brillo uniforme, humectación circunferencial y ausencia de poros o puentes.</li>
+                </ol>
+            </div>
+
+            <!-- NUEVO: Una buena soldadura -->
+            <div class="practica-section p-5">
+                <h2>Una buena soldadura</h2>
+                <img src="img/buenasold.png" class="practica-image d-block mx-auto">
+                <ul class="list-clean mini">
+                    <li><span class="label">Geometría:</span> cóncavo, transición suave del pad al terminal, sin abultamientos.</li>
+                    <li><span class="label">Cobertura:</span> humectación visible 360° alrededor del pin o a lo largo del pad SMD.</li>
+                    <li><span class="label">Superficie:</span> continua y lisa, sin poros, grietas, bolas ni residuos adheridos.</li>
+                    <li><span class="label">Volumen:</span> suficiente para anclaje mecánico, sin ocultar completamente el contorno del terminal.</li>
+                    <li><span class="label">Coloración del sustrato:</span> sin decoloración por calor ni pads levantados.</li>
+                    <li><span class="label">Eléctrico:</span> continuidad baja entre nodos conectados y aislamiento alto entre redes vecinas.</li>
+                </ul>
+            </div>
+
+            <!-- Buenas prácticas -->
+            <div class="practica-section p-5">
+                <h2>Buenas prácticas</h2>
+                <ul class="list-clean">
+                    <li>Mantener la punta limpia y estañada con esponja húmeda o lana metálica.</li>
+                    <li>Evitar sobrecalentar pads y componentes con tiempo de contacto corto.</li>
+                    <li>Elegir diámetro de soldadura acorde al encapsulado (0.5–0.8 mm SMD; 0.8–1.0 mm THT).</li>
+                    <li>Diseñar con alivio térmico en planos extensos y separaciones adecuadas entre pads.</li>
+                </ul>
+            </div>
+
+            <!-- Defectos / malas técnicas (13) -->
+            <div class="practica-section p-5">
+                <h2>Malas técnicas y defectos comunes.</h2>
+                <p class="mini">
+                    Lista de defectos frecuentes en soldadura manual y reflow. A continuación, causas, prevención y corrección.
+                </p>
+
+                <div class="card-defecto">
+                    <h5>1) Puentes de soldadura </h5>
+                    <img src="img/puentes.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> exceso de soldadura o punta grande; separación de pads insuficiente.</p>
+                    <p class="mini"><span class="label">Prevención:</span> punta adecuada y menor material; máscara antisoldante correcta.</p>
+                    <p class="mini"><span class="label">Corrección:</span> mecha o chupón, reflujo local y limpieza.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>2) Exceso de soldadura</h5>
+                    <img src="img/Exceso.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Señal:</span> abombamiento que oculta el menisco.</p>
+                    <p class="mini"><span class="label">Prevención:</span> dosificar aporte y usar diámetro menor.</p>
+                    <p class="mini"><span class="label">Corrección:</span> retirar excedente con mecha o chupón y rehacer con poco material.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>3) Bolas de soldadura</h5>
+                    <img src="img/bolasold.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> salpicado por perfil inadecuado, contaminación u óxidos.</p>
+                    <p class="mini"><span class="label">Prevención:</span> limpieza y control de temperatura.</p>
+                    <p class="mini"><span class="label">Corrección:</span> retirar esferas y reflujo local.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>4) Soldadura fría</h5>
+                    <img src="img/frio.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Señal:</span> superficie opaca y granulada con mala humectación.</p>
+                    <p class="mini"><span class="label">Prevención:</span> calentar pad y pin a la vez con temperatura suficiente.</p>
+                    <p class="mini"><span class="label">Corrección:</span> reaplicar calor hasta humectar correctamente.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>5) Unión sobrecalentada</h5>
+                   <img src="img/sobrecal.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Señal:</span> decoloración de PCB o pista y posible daño al componente.</p>
+                    <p class="mini"><span class="label">Prevención:</span> tiempo de contacto corto y punta limpia.</p>
+                    <p class="mini"><span class="label">Corrección:</span> enfriar, retirar soldadura y rehacer con control térmico.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>6) Lapidación</h5>
+                    <img src="img/Lapidacion.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> fuerzas térmicas disparejas levantan un extremo del chip.</p>
+                    <p class="mini"><span class="label">Prevención:</span> perfil uniforme, pads simétricos y volumen de pasta parejo.</p>
+                    <p class="mini"><span class="label">Corrección:</span> recolocar, soldar con aire caliente y ajustar perfil.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>7) Derretimiento insuficiente / fusión incompleta</h5>
+                    <img src="img/insuficiente.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Señal:</span> filete no moja el pad y presenta bordes agudos.</p>
+                    <p class="mini"><span class="label">Prevención:</span> limpieza y control térmico adecuado.</p>
+                    <p class="mini"><span class="label">Corrección:</span> reflujo local hasta obtener menisco cóncavo.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>8) Saltos u omisiones de soldadura</h5>
+                   <img src="img/saltos.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> falta de pasta/estaño, mala alineación o contacto térmico pobre.</p>
+                    <p class="mini"><span class="label">Prevención:</span> stencil correcto con presión uniforme y revisión de colocación.</p>
+                    <p class="mini"><span class="label">Corrección:</span> retoque manual con microcantidad de soldadura.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>9) Pads levantados</h5>
+                    <img src="img/padslev.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> exceso de calor o fuerza mecánica durante desoldado.</p>
+                    <p class="mini"><span class="label">Prevención:</span> temperatura controlada y evitar tirar del pin en caliente.</p>
+                    <p class="mini"><span class="label">Corrección:</span> reanclar pad (epoxi conductor o jumper) y soldar con cuidado.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>10) Soldadura hambrienta (volumen insuficiente)</h5>
+                   <img src="img/Hambrienta.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Señal:</span> filete delgado con poca resistencia mecánica.</p>
+                    <p class="mini"><span class="label">Prevención:</span> aportar volumen adecuado con diámetro correcto.</p>
+                    <p class="mini"><span class="label">Corrección:</span> reflujo y adición moderada hasta cubrir el pad.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>11) Salpicaduras</h5>
+                   <img src="img/salpicadura.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> proyección de soldadura por temperatura o contaminación.</p>
+                    <p class="mini"><span class="label">Prevención:</span> limpieza y ajuste de perfil térmico.</p>
+                    <p class="mini"><span class="label">Corrección:</span> limpieza minuciosa e inspección para descartar microcortos.</p>
+                </div>
+
+                <div class="card-defecto">
+                    <h5>12) Orificios</h5>
+                   <img src="img/orificios.png" class="practica-image d-block mx-auto">
+                    <p class="mini"><span class="label">Causa:</span> gases atrapados en el taladro o humedad de la PCB.</p>
+                    <p class="mini"><span class="label">Prevención:</span> prebake de la placa, limpieza y control térmico.</p>
+                    <p class="mini"><span class="label">Corrección:</span> retrabajo aportando soldadura desde el lado opuesto.</p>
+                </div>
+
+            
+
+            <!-- Resultados de soldadura en PCB KiCad + MonoFab (sin mencionar flux) -->
+            <div class="practica-section p-5">
+                <h2>Resultados de soldadura en PCB </h2>
+                <figure class="video-container" style="max-width: 900px; margin: 1rem auto;">
+  <video controls preload="metadata" playsinline style="width: 100%; border-radius: 12px;">
+    <source src="img/resultsold.mp4" type="video/mp4">
+   
+  </video>
+  <img src="img/resultjimmyy.jfif" class="practica-image d-block mx-auto">
+  
+
+                <p>
+                    Se diseñó la PCB en KiCad considerando reglas de fabricación y separación de pads para soldabilidad. El fresado
+                    se realizó en equipo MonoFab, cuidando la limpieza de cobre posterior y la desbarbación de pistas. La soldadura manual
+                    se efectuó con una aleación acorde al laboratorio, aplicando tiempos de contacto cortos para evitar delaminación
+                    y levantamiento de pads.
+                </p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <h5 style="color: var(--color-acentos);">Inspección visual</h5>
+                            <ul class="list-clean mini">
+                               
+                                <li><span class="label">Puentes:</span> no se observaron uniones entre pads adyacentes.</li>
+                                <li><span class="label">Alineación:</span> componentes SMD centrados sobre pads, sin desplazamientos.</li>
+                                <li><span class="label">Daños:</span> sin pads levantados ni decoloración por calor.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h5 style="color: var(--color-acentos);">Pruebas eléctricas</h5>
+                            <ul class="list-clean mini">
+                                <li><span class="label">Continuidad:</span> todas las redes críticas con baja resistencia entre nodos conectados.</li>
+                                <li><span class="label">Aislamiento:</span> sin continuidad entre redes independientes cercanas.</li>
+                                <li><span class="label">Funcionalidad:</span> el circuito operó conforme a lo esperado.</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                    
+            </div>
+
+            <!-- Conclusiones (sin mencionar flux y sin referencias) -->
+            <div class="practica-section p-5">
+                <h2>Conclusiones</h2>
+                <p>
+                    Durante el proceso de soldadura de componentes de tamaño reducido se presentaron algunos errores comunes previamente mencionados, como salpicaduras de estaño y exceso en su aplicación. Estos defectos son frecuentes al trabajar con pads pequeños y requieren mayor precisión en el control del calor y la cantidad de soldadura. Sin embargo, la práctica permitió identificar estos puntos críticos y reforzar la importancia de mantener una técnica cuidadosa, herramientas limpias y una temperatura adecuada para lograr un ensamble confiable y estéticamente correcto.
+                </p>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Ingenierias-iberopuebla.mx 2025</div></div>
+            <div class="col-auto">
+                <a class="link-light small" href="#!">Privacy</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Terms</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/scripts.js"></script>
+</body>
+</html>
